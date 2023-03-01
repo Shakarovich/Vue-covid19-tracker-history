@@ -3,7 +3,9 @@
      <DataTitle :text="title" :dataDate="dataDate"/>
      <DataBoxes :stats="stats"/>
      <CountrySelect @get-country="getCountryData" :countries="countries"/>
-
+     <button class="bg-green-700 text-white rounded p-3 mt-10 focus:outline-none hover:bg-green-600">
+       Clear country
+     </button>
   </main>
   <main class="flex flex-col align-center justify-center text-center" v-else>
     <div class="text-gray-500 text-3xl mt-10 mb-6">
@@ -42,6 +44,7 @@ import CountrySelect from "@/components/CountrySelect.vue";
       },
       getCountryData(country) {
         this.stats = country
+        this.title = country.Country
       }
     },
     async created() {
